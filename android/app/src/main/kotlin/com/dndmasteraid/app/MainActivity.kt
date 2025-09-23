@@ -1,4 +1,4 @@
-package com.example.dnd_master_aid
+package com.dndmasteraid.app
 
 import io.flutter.embedding.android.FlutterActivity
 
