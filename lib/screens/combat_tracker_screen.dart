@@ -1509,18 +1509,8 @@ class _AggiungiCombattenteSheetState extends State<_AggiungiCombattenteSheet> {
           return nome.contains(q) || nomeEn.contains(q);
         }).toList();
     if (!mounted) return;
-    // Mostri homebrew in cima, poi SRD.
-    var tutti = [...homebrew, ...srd];
-
-    // Applica il filtro per GS se selezionato
-    if (_selectedCrFilter != 'All') {
-      tutti =
-          tutti.where((m) {
-            final cr = m['challenge_rating']?.toString() ?? '';
-            return mostroNelFiltroCr(cr, _selectedCrFilter);
-          }).toList();
-    }
-
+    // Mostri homebrew in cima, poi SRD (al massimo 20 risultati totali).
+    final tutti = [...homebrew, ...srd];
     setState(() => _risultatiMostri = tutti.take(20).toList());
   }
 
