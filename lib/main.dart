@@ -16,6 +16,7 @@ import 'screens/name_generator.dart'; // Generatore nomi (standalone)
 import 'screens/npc_generator_screen.dart'; // Generatore PNG completo
 import 'screens/saved_characters_screen.dart'; // Lista personaggi salvati
 import 'screens/combat_tracker_screen.dart'; // Tracker iniziativa/combattimento
+import 'screens/pdf_import_screen.dart';
 import 'screens/monster_creator_screen.dart'; // Creatore mostri homebrew
 import 'screens/settings_screen.dart'; // Impostazioni del Master
 import 'screens/side_quest_generator_screen.dart'; // Generatore side quest
@@ -198,6 +199,13 @@ class HomePage extends StatelessWidget {
       'nome': 'Generatore Side Quest',
       'icona': '📜',
       'descr': 'Missioni secondarie pronte per l\'improvvisazione',
+      'attivo': true,
+    },
+    {
+      'id': 'importPdf',
+      'nome': 'Importa Personaggio',
+      'icona': '📄',
+      'descr': 'Carica una scheda WotC da PDF',
       'attivo': true,
     },
   ];
@@ -463,8 +471,12 @@ class HomePage extends StatelessWidget {
         break;
       case 'creamostro':
         page = const MonsterCreatorScreen();
+        break;
       case 'sideQuest':
         page = const SideQuestGeneratorScreen();
+        break;
+      case 'importPdf':
+        page = const PdfImportScreen();
         break;
       default:
         page = const ComingSoonScreen(); // 🕒 Placeholder
